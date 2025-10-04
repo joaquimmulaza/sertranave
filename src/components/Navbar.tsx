@@ -1,69 +1,59 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
 import { Menu, X, Phone, Mail, Facebook, Instagram } from 'lucide-react';
-import logo from '../assets/images/sertranave.png';
 import { Dialog } from './ui/dialog';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 
 const navLinks = [
-  { name: 'Início', href: '/' },
-  { name: 'Quem Somos', href: '/quem-somos' },
-  { name: 'Serviços', href: '/servicos' },
-  { name: 'Portos', href: '/portos' },
-  { name: 'Contactos', href: '/contactos' },
+  { name: 'navbar_home', href: '/' },
+  { name: 'navbar_about', href: '/quem-somos' },
+  { name: 'navbar_services', href: '/servicos' },
+  { name: 'navbar_ports', href: '/portos' },
+  { name: 'navbar_contact', href: '/contactos' },
 ];
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
 
-  const handleChange = e => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm({ ...form, [e.target.id]: e.target.value });
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission (e.g., send to API or email)
     setDialogOpen(false);
     setForm({ name: '', email: '', phone: '', message: '' });
   };
 
   return (
-    <nav className="w-full shadow-md">
-      {/* Top Bar */}
-      <div className="bg-primary text-white text-sm flex justify-between items-center px-4 py-1">
-        <div className="flex items-center gap-4">
-          <Phone size={16} className="inline-block mr-1" /> +244 922617263
-          <Mail size={16} className="inline-block ml-4 mr-1" /> info@sertranave.co.ao
-        </div>
-        <div className="flex items-center gap-3">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <Facebook size={18} />
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <Instagram size={18} />
-          </a>
-        </div>
-      </div>
+    <nav className="w-full shadow-md bg-primary">
+      
       {/* Main Bar */}
-      <div className="bg-primary text-white flex items-center justify-between px-4 py-2 relative">
-        <a href="/" className="flex items-center gap-2">
-          <img src={logo} alt="Sertranave Logo" className="h-10 w-auto" />
+      <div className="max-w-6xl mx-auto bg-primary text-white flex items-center justify-between px-4 py-2 relative">
+        <a href="/" className="flex logo items-center gap-2 text-4xl font-stardos-stencil">
+          SERTRANAVE
         </a>
         {/* Desktop Nav */}
-        <ul className="hidden md:flex gap-8 font-medium">
+        <ul className="hidden md:flex gap-8 font-medium items-center">
           {navLinks.map(link => (
             <li key={link.name}>
               <a href={link.href} className="hover:underline underline-offset-4 transition-colors">
-                {link.name}
+                {t(link.name)}
               </a>
             </li>
           ))}
           <li>
             <button
-              className="ml-4 px-4 py-2 rounded bg-white text-primary font-semibold hover:bg-primary/10 transition-colors border border-primary"
+              className="ml-4 px-4 py-2 rounded bg-white text-primary font-semibold hover:bg-gray-100 transition-colors border border-primary"
               onClick={() => setDialogOpen(true)}
             >
-              PEÇA UMA COTAÇÃO
+              {t('quote_button')}
             </button>
+          </li>
+          <li>
+            <LanguageSelector />
           </li>
         </ul>
         {/* Mobile Hamburger */}
@@ -80,52 +70,52 @@ export default function Navbar() {
                 className="py-2 w-full text-center hover:bg-blue-900 transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
-                {link.name}
+                {t(link.name)}
               </a>
             ))}
             <button
               className="mt-2 px-4 py-2 rounded bg-white text-primary font-semibold hover:bg-primary/10 transition-colors border border-primary"
               onClick={() => { setDialogOpen(true); setMenuOpen(false); }}
             >
-              PEÇA UMA COTAÇÃO
+              {t('quote_button')}
             </button>
           </div>
         )}
       </div>
       {/* Dialog for Cotação */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <h2 className="text-xl font-bold mb-4 text-primary">Peça uma Cotação</h2>
+        <h2 className="text-xl font-bold mb-4 text-primary">{t('quote_title')}</h2>
         <form className="space-y-4" onSubmit={handleSubmit}>
           <Input
-            name="name"
-            placeholder="Nome"
+            id="name"
+            placeholder={t('form_name')}
             value={form.name}
             onChange={handleChange}
             required
           />
           <Input
-            name="email"
+            id="email"
             type="email"
-            placeholder="Email"
+            placeholder={t('form_email')}
             value={form.email}
             onChange={handleChange}
             required
           />
           <Input
-            name="phone"
-            placeholder="Telefone"
+            id="phone"
+            placeholder={t('form_phone')}
             value={form.phone}
             onChange={handleChange}
           />
           <textarea
-            name="message"
-            placeholder="Mensagem"
+            id="message"
+            placeholder={t('form_message')}
             value={form.message}
             onChange={handleChange}
             className="block w-full rounded border border-gray-300 px-3 py-2 text-base focus:border-primary focus:ring-primary focus:outline-none focus:ring-2 min-h-[80px]"
             required
           />
-          <Button type="submit" className="w-full">Enviar</Button>
+          <Button type="submit" className="w-full">{t('form_submit')}</Button>
         </form>
       </Dialog>
     </nav>

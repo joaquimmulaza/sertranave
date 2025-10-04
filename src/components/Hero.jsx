@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-// If you have shadcn/ui Button as a default export:
 import { Button } from "./ui/button";
+import sertranaveCenter from '../assets/images/slide-03.png';
+import sertranaveLogo from '../assets/images/slide-02.jpg';
+import giphy from '../assets/images/slide-01.png';
 
 const slides = [
   {
-    image: require('../assets/images/sertranave.center.png'),
+    image: sertranaveCenter,
     alt: 'Sertranave Center',
   },
   {
-    image: require('../assets/images/sertranave.png'),
+    image: sertranaveLogo,
     alt: 'Sertranave Logo',
   },
   {
-    image: require('../assets/images/giphy.gif'),
+    image: giphy,
     alt: 'Sertranave Animation',
   },
 ];
 
 export default function Hero() {
+  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
 
   React.useEffect(() => {
@@ -43,10 +47,10 @@ export default function Hero() {
         />
       </AnimatePresence>
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full bg-black/40 text-white text-center px-4">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg mb-4">SERTRANAVE</h1>
-        <p className="text-lg md:text-2xl mb-8 font-medium drop-shadow">Serviços Transitários e Navegação Lda</p>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg mb-4">{t('hero_title')}</h1>
+        <p className="text-lg md:text-2xl mb-8 font-medium drop-shadow">{t('hero_subtitle')}</p>
         <Button className="bg-primary text-white px-8 py-3 text-lg rounded shadow-lg hover:bg-primary/90 transition-colors">
-          Saiba Mais
+          {t('learn_more')}
         </Button>
       </div>
     </section>
