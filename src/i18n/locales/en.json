@@ -16,13 +16,13 @@
   "form_submit": "Submit",
   "our_services": "Our Services",
   "service_shipping_agency_title": "Maritime Agency",
-  "service_shipping_agency_description": "Ship agency services, coordination of port operations and complete logistical support.",
-  "service_customs_clearance_title": "Customs Clearance",
+  "service_shipping_agency_description": "With an efficient and dedicated team of experts in the national market and a portfolio of firmly established suppliers, the group guarantees that needs are met in the shortest possible time and competitively in all aspects.",
+  "service_customs_clearance_title": "HUSBANDRY",
   "service_customs_clearance_description": "Management of customs processes, clearance of goods and consulting on customs legislation.",
-  "service_transport_logistics_title": "Transport and Logistics",
-  "service_transport_logistics_description": "Integrated land, sea and air transport solutions, with tracking and security.",
-  "service_port_consulting_title": "Port Consulting",
-  "service_port_consulting_description": "Technical and strategic support for port operations and optimization of logistics processes.",
+  "service_transport_logistics_title": "Import and Export",
+  "service_transport_logistics_description": "We assist in obtaining import licenses from the Ministry of Commerce or respective sectors, in the customs clearance of air or sea cargo, general or personal effects, as well as logistics for the delivery of air or sea cargo within the jurisdiction of Luanda quickly and at very competitive rates in the market.",
+  "service_port_consulting_title": "Cabotage",
+  "service_port_consulting_description": "Cabotage is navigation between ports within the same country, as opposed to long-haul navigation, which is carried out between ports in different countries. It is considered competitive, given that Angola has an extensive navigable coastline and the main cities, industrial hubs, and major consumer centers are concentrated on or near the coast.Compared to road and rail transportation, in terms of cost, cargo capacity, and lower environmental impact, cabotage becomes an alternative.We register and schedule cargo, coordinate port operations, process documentation, and obtain customs clearance for inbound or outbound cabotage, as well as confirmation of shipment and discharge.",
   "ports_we_serve": "Ports We Serve",
   "port_luanda_name": "Port of Luanda",
   "port_luanda_description": "We operate in the commercial port of Luanda, as well as at the Sonils oil base. We coordinate with the authorities for inspection visits in the maritime clearance of entry and exit of all types of ships or maritime units such as platforms and probes, assistance in changing crews, whether with transport, hotel, airline tickets, car rental, cargo handling under the Cabotage regime of entry or exit, cargo licensing at the Ministry of Commerce, and or in the respective sector ministries, customs clearance of air and sea cargo as well as logistics coordination until delivery, customs clearance of personal goods for companies and individuals.",
@@ -54,5 +54,19 @@
   "about_us_title": "About Us",
   "about_us_content": "SERTRANAVE – Serviços Transitários e Navegação, Lda, is an Angolan company dedicated to maritime agency, logistics and port consulting. With an experienced team and innovative solutions, we operate in the main ports of Angola, offering personalized and efficient services for national and international clients.",
   "our_history_title": "Our History",
-  "our_history_content": "Founded in Luanda, SERTRANAVE has established itself as a reference in the Angolan maritime and logistics sector. Our trajectory is marked by a commitment to excellence, ethics and innovation, always focused on exceeding the expectations of our customers."
+  "our_history_content": "Founded in Luanda, SERTRANAVE has established itself as a reference in the Angolan maritime and logistics sector. Our trajectory is marked by a commitment to excellence, ethics and innovation, always focused on exceeding the expectations of our customers.",
+  "clients_trust_us": "Companies that trust us",
+  "vmv": {
+    "vision_title": "Vision",
+    "vision_description": "Provide quality and efficient service based on international best practices to better serve the customer as a central point in their market strategy and a factor of competitive differentiation.",
+    "mission_title": "Mission",
+    "mission_description": "As an active part in the country's economic and social development, in the continuous search for efficient and sustainable solutions, Sertranave aspires to become an unavoidable reference and leader in the national market, a symbol of quality in service delivery.",
+    "values_title": "Values",
+    "values_description": [
+      "Integrity",
+      "Efficient innovation and professional solutions",
+      "Sustainability",
+      "Code of Conduct, Ethics and Compliance"
+    ]
+  }
 }

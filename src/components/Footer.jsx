@@ -28,7 +28,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Logo & Mission */}
         <div className="flex flex-col items-start">
-          <span className='logo text-2xl font-stardos-stencil'>Sertranave</span>
+          <span className='logo text-2xl font-stardos-stencil'>SERTRANAVE</span>
           <p className="text-sm opacity-80">
             {t('footer_mission')}
           </p>

@@ -112,7 +112,7 @@ export default function Navbar() {
             placeholder={t('form_message')}
             value={form.message}
             onChange={handleChange}
-            className="block w-full rounded border border-gray-300 px-3 py-2 text-base focus:border-primary focus:ring-primary focus:outline-none focus:ring-2 min-h-[80px]"
+            className="block w-full rounded border border-gray-300 px-3 py-2 text-base focus:border-primary focus:ring-primary focus:outline-none focus:ring-1 min-h-[80px]"
             required
           />
           <Button type="submit" className="w-full">{t('form_submit')}</Button>

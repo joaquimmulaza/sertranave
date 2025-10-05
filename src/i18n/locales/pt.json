@@ -16,13 +16,13 @@
   "form_submit": "Enviar",
   "our_services": "Nossos Serviços",
   "service_shipping_agency_title": "Agenciamento Marítimo",
-  "service_shipping_agency_description": "Serviços de agenciamento de navios, coordenação de operações portuárias e apoio logístico completo.",
-  "service_customs_clearance_title": "Trânsitos Aduaneiros",
-  "service_customs_clearance_description": "Gestão de processos aduaneiros, desembaraço de mercadorias e consultoria em legislação alfandegária.",
-  "service_transport_logistics_title": "Transporte e Logística",
-  "service_transport_logistics_description": "Soluções integradas de transporte terrestre, marítimo e aéreo, com rastreamento e segurança.",
-  "service_port_consulting_title": "Consultoria Portuária",
-  "service_port_consulting_description": "Apoio técnico e estratégico para operações portuárias e otimização de processos logísticos.",
+  "service_shipping_agency_description": "Com uma eficiente e dedicada equipa de experts no mercado nacional e uma carteira de fornecedores firmemente estabelecidos, o grupo garante o suprir de necessidades no menor espaço de tempo e de forma competitiva em todas as suas vertentes ",
+  "service_customs_clearance_title": "HUSBANDRY",
+  "service_customs_clearance_description": "Prestamos assistência em mudanças de tripulação, vistos de embarque, desembarque entrega de provisões, coordenação para abastecimento de agua e MGO, entrega de correio a bordo, marcações de hotel, assistência e transporte de e para aeroporto, viaturas para aluguer, e passagens aéreas locais, suprindo as necessidade das tripulações. Oferecemos serviços de qualidade a um custo competitivo para cumprir com os requisitos dos clientes.",
+  "service_transport_logistics_title": "Importação e Exportação",
+  "service_transport_logistics_description": "Assistimos na obtenção de licenças de importação do Ministério do comércio ou respetivos sectores, no desalfandegamento de carga aérea ou marítima, geral ou bens pessoais, bem como da logística para a entrega de carga aérea ou marítima na jurisdição de Luanda de forma rápida e taxas muito competitivas no mercado.",
+  "service_port_consulting_title": "Cabotagem",
+  "service_port_consulting_description": "A Cabotagem é a navegação entre portos do mesmo país, que se contrapõe à navegação de longo curso, que é realizada entre portos de diferentes países. É considerada competitiva, tendo em conta que Angola possui uma extensa costa navegável e as principais cidades, polos industriais e grandes centros consumidores se concentram no litoral ou em cidades próximas a ele.Comparada ao transporte rodoviário e ferroviário, em termos de custo, capacidade de carga e menor impacto ambiental, a Cabotagem torna-se uma alternativa.Efectuamos o registo e agendamento de cargas, coordenação portuária, tratamento da documentação e obtenção na alfandega das cabotagem de entrada ou saída, confirmação de embarque e descargas.",
   "ports_we_serve": "Portos que Servimos",
   "port_luanda_name": "Porto de Luanda",
   "port_luanda_description": "Operamos no porto comercial de Luanda, bem como na base Petrolifera da Sonils. Efectuamos Coordenação com as autoridades para visita de inspeção no desembaraço marítimo de entrada e saída de todo o tipo de navios ou unidades marítimas como Plataformas e sondas, assistência na mudança de tripulações seja com transporte, hotel, passagens aéreas, rent-a car, tratamento de carga em regime de Cabotagem de entrada ou saída, Licenciamento de carga no Min. Do comercio, e ou nos respectivos ministérios de sector, desalfandegamento de carga Aéria e Maritima bem como coordenação logística ate a entrega , desalfandegamento bens pessoais para empresas e particulares.",
@@ -54,5 +54,19 @@
   "about_us_title": "Quem Somos",
   "about_us_content": "A SERTRANAVE – Serviços Transitários e Navegação, Lda, é uma empresa angolana dedicada ao agenciamento marítimo, logística e consultoria portuária. Com uma equipa experiente e soluções inovadoras, atuamos nos principais portos de Angola, oferecendo serviços personalizados e eficientes para clientes nacionais e internacionais.",
   "our_history_title": "Nossa História",
-  "our_history_content": "Fundada em Luanda, a SERTRANAVE consolidou-se como referência no setor marítimo e logístico angolano. Nossa trajetória é marcada pelo compromisso com a excelência, ética e inovação, sempre focados em superar as expectativas dos nossos clientes."
+  "our_history_content": "Fundada em Luanda, a SERTRANAVE consolidou-se como referência no setor marítimo e logístico angolano. Nossa trajetória é marcada pelo compromisso com a excelência, ética e inovação, sempre focados em superar as expectativas dos nossos clientes.",
+  "clients_trust_us": "Empresas que confiam em nós",
+  "vmv": {
+    "vision_title": "Visão",
+    "vision_description": "Providenciar serviço de qualidade e eficiência com base nas melhores práticas Internacionais para melhor servir o cliente como ponto fulcral na sua estratégia de mercado e factor de diferenciação competitiva.",
+    "mission_title": "Missão",
+    "mission_description": "Como parte activa no desenvolvimento económico e social do País na busca continua de soluções eficientes e sustentáveis, a Sertranave aspira tornar-se uma referencia incontornável e líder no mercado nacional, símbolo de qualidade na prestação de serviços.",
+    "values_title": "Valores",
+    "values_description": [
+      "Integridade",
+      "Inovação eficiente e soluções profissionais",
+      "Sustentabilidade",
+      "Código de Conduta, Ética e Conformidade"
+    ]
+  }
 }
