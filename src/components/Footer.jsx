@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from '../assets/images/sertranave.png';
+import tuvCertificado from '../assets/images/tuv-certificado.png';
+import anpgCertificado from '../assets/images/anpg-certificado.png';
 import { Facebook, Instagram, Mail, Phone } from 'lucide-react';
+import CertificateModal from './CertificateModal';
 
 const year = new Date().getFullYear();
 
 export default function Footer() {
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState(null);
+
+  const openCertificate = (certificateType) => {
+    setSelectedCertificate(certificateType);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedCertificate(null);
+  };
 
   return (
     <footer className="bg-primary text-white mt-12">
-      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Logo & Mission */}
         <div className="flex flex-col items-start">
           <span className='logo text-2xl font-stardos-stencil'>Sertranave</span>
@@ -38,6 +53,32 @@ export default function Footer() {
             <li>{t('footer_address')}</li>
           </ul>
         </div>
+        {/* Certificates */}
+        <div>
+          <h3 className="font-bold mb-3 text-lg">{t('footer_certificates')}</h3>
+          <div className="space-y-4">
+            <div 
+              className="bg-white/10 p-3 rounded-lg cursor-pointer hover:bg-white/20 transition-colors"
+              onClick={() => openCertificate('tuv')}
+            >
+              <img 
+                src={tuvCertificado} 
+                alt="TÜV Rheinland Certificate" 
+                className="w-full h-auto rounded"
+              />
+            </div>
+            <div 
+              className="bg-white/10 p-3 rounded-lg cursor-pointer hover:bg-white/20 transition-colors"
+              onClick={() => openCertificate('anpg')}
+            >
+              <img 
+                src={anpgCertificado} 
+                alt="ANPG Certificate" 
+                className="w-full h-auto rounded"
+              />
+            </div>
+          </div>
+        </div>
       </div>
       {/* Bottom Bar */}
       <div className="bg-primary/90 border-t border-white/10 py-4 text-center flex flex-col md:flex-row items-center justify-between px-4 max-w-6xl mx-auto">
@@ -47,6 +88,13 @@ export default function Footer() {
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a>
         </div>
       </div>
+
+      {/* Certificate Modal */}
+      <CertificateModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        certificateType={selectedCertificate}
+      />
     </footer>
   );
 }
