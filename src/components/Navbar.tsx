@@ -61,7 +61,7 @@ export default function Navbar() {
                   spy={true}
                   offset={-80}
                   className="cursor-pointer hover:underline underline-offset-4 transition-colors"
-                  activeClass="text-secondary"
+                  activeClass="underline"
                 >
                   {t(link.name)}
                 </ScrollLink>

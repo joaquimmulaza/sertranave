@@ -49,8 +49,8 @@ const ContactPage = () => {
       </motion.section>
 
       {/* Contact Cards */}
-      <section className="py-20 md:py-28">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-28 ">
+        <div className="container mx-auto px-4 max-w-7xl mx-auto">
           <motion.div
             className="grid md:grid-cols-3 gap-8"
             variants={staggerContainer}
@@ -66,8 +66,8 @@ const ContactPage = () => {
       </section>
 
       {/* Form and Map */}
-      <section className="py-20 md:py-28 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 md:py-28 bg-gray-50 ">
+        <div className="container px-4 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <h2 className="text-3xl font-bold text-primary mb-6">{t('contact_form_title')}</h2>
