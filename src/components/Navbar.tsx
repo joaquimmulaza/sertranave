@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import LanguageSelector from './LanguageSelector';
-import { Menu, X, Phone, Mail, Facebook, Instagram } from 'lucide-react';
-import { Dialog } from './ui/dialog';
-import { Input } from './ui/input';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
+import LanguageSelector from './LanguageSelector.jsx';
+import { Menu, X } from 'lucide-react';
+import { Dialog } from './ui/dialog.jsx';
+import { Input } from './ui/input.jsx';
 import { Button } from './ui/button';
 
 const navLinks = [
-  { name: 'navbar_home', href: '/' },
-  { name: 'navbar_about', href: '/quem-somos' },
-  { name: 'navbar_services', href: '/servicos' },
-  { name: 'navbar_ports', href: '/portos' },
-  { name: 'navbar_contact', href: '/contactos' },
-  { name: 'navbar_quality_policy', href: '/politica-de-qualidade' },
+  { name: 'navbar_home', to: '/', isScrollLink: false },
+  { name: 'navbar_about', to: '/quem-somos', isScrollLink: false },
+  { name: 'navbar_services', to: 'services', isScrollLink: true },
+  { name: 'navbar_ports', to: 'ports', isScrollLink: true },
+  { name: 'navbar_contact', to: '/contactos', isScrollLink: false },
+  { name: 'navbar_quality_policy', to: '/politica-de-qualidade', isScrollLink: false },
 ];
 
 export default function Navbar() {
   const { t } = useTranslation();
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
@@ -48,11 +51,28 @@ export default function Navbar() {
         </a>
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-8 font-medium items-center">
-          {navLinks.map(link => (
+          {navLinks.map((link) => (
             <li key={link.name}>
-              <a href={link.href} className="hover:underline underline-offset-4 transition-colors">
-                {t(link.name)}
-              </a>
+              {location.pathname === '/' && link.isScrollLink ? (
+                <ScrollLink
+                  to={link.to}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  offset={-80}
+                  className="cursor-pointer hover:underline underline-offset-4 transition-colors"
+                  activeClass="text-secondary"
+                >
+                  {t(link.name)}
+                </ScrollLink>
+              ) : (
+                <RouterLink
+                  to={link.isScrollLink ? `/#${link.to}` : link.to}
+                  className="hover:underline underline-offset-4 transition-colors"
+                >
+                  {t(link.name)}
+                </RouterLink>
+              )}
             </li>
           ))}
           <li>
@@ -74,15 +94,29 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="absolute top-full left-0 w-full bg-primary text-white flex flex-col items-center py-4 z-20 md:hidden shadow-lg animate-in fade-in">
-            {navLinks.map(link => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="py-2 w-full text-center hover:bg-blue-900 transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                {t(link.name)}
-              </a>
+            {navLinks.map((link) => (
+              <div key={link.name} className="py-2 w-full text-center hover:bg-blue-900 transition-colors">
+                {location.pathname === '/' && link.isScrollLink ? (
+                  <ScrollLink
+                    to={link.to}
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    offset={-80}
+                    onClick={() => setMenuOpen(false)}
+                    activeClass="text-secondary"
+                  >
+                    {t(link.name)}
+                  </ScrollLink>
+                ) : (
+                  <RouterLink
+                    to={link.isScrollLink ? `/#${link.to}` : link.to}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {t(link.name)}
+                  </RouterLink>
+                )}
+              </div>
             ))}
             <button
               className="mt-2 px-4 py-2 rounded bg-white text-primary font-semibold hover:bg-primary/10 transition-colors border border-primary"
@@ -124,7 +158,6 @@ export default function Navbar() {
             value={form.message}
             onChange={handleChange}
             className="block w-full rounded border border-gray-300 px-3 py-2 text-base focus:border-primary focus:ring-primary focus:outline-none focus:ring-1 min-h-[80px]"
-            required
           />
           <Button type="submit" className="w-full">{t('form_submit')}</Button>
         </form>

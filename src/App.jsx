@@ -3,11 +3,13 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer'; // Import the new Footer
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import ServicesPage from './pages/ServicesPage';
 import QualityPolicyPage from './pages/QualityPolicyPage';
 import ContactPage from './pages/ContactPage';
+import useSmoothScroll from './lib/useSmoothScroll';
 
 function App() {
+  useSmoothScroll();
+
   return (
     <BrowserRouter>
       <div className="flex flex-col min-h-screen bg-background-light">
@@ -16,7 +18,6 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/quem-somos" element={<AboutPage />} />
-            <Route path="/servicos" element={<ServicesPage />} />
             <Route path="/politica-de-qualidade" element={<QualityPolicyPage />} />
             <Route path="/contactos" element={<ContactPage />} />
             {/* Adicionar outras rotas aqui no futuro, como para os Portos */}

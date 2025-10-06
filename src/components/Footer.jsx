@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import logo from '../assets/images/sertranave.png';
 import tuvCertificado from '../assets/images/tuv-certificado.png';
 import anpgCertificado from '../assets/images/anpg-certificado.png';
@@ -10,6 +12,7 @@ const year = new Date().getFullYear();
 
 export default function Footer() {
   const { t } = useTranslation();
+  const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
 
@@ -37,11 +40,33 @@ export default function Footer() {
         <div>
           <h3 className="font-bold mb-3 text-lg">{t('footer_quick_links')}</h3>
           <ul className="space-y-2">
-            <li><a href="/" className="hover:underline">{t('navbar_home')}</a></li>
-            <li><a href="/quem-somos" className="hover:underline">{t('navbar_about')}</a></li>
-            <li><a href="/servicos" className="hover:underline">{t('navbar_services')}</a></li>
-            <li><a href="/portos" className="hover:underline">{t('navbar_ports')}</a></li>
-            <li><a href="/contactos" className="hover:underline">{t('navbar_contact')}</a></li>
+            <li>
+              <RouterLink to="/" className="hover:underline">{t('navbar_home')}</RouterLink>
+            </li>
+            <li>
+              <RouterLink to="/quem-somos" className="hover:underline">{t('navbar_about')}</RouterLink>
+            </li>
+            <li>
+              {location.pathname === '/' ? (
+                <ScrollLink to="services" smooth={true} duration={500} offset={-80} className="cursor-pointer hover:underline">
+                  {t('navbar_services')}
+                </ScrollLink>
+              ) : (
+                <RouterLink to="/#services" className="hover:underline">{t('navbar_services')}</RouterLink>
+              )}
+            </li>
+            <li>
+              {location.pathname === '/' ? (
+                <ScrollLink to="ports" smooth={true} duration={500} offset={-80} className="cursor-pointer hover:underline">
+                  {t('navbar_ports')}
+                </ScrollLink>
+              ) : (
+                <RouterLink to="/#ports" className="hover:underline">{t('navbar_ports')}</RouterLink>
+              )}
+            </li>
+            <li>
+              <RouterLink to="/contactos" className="hover:underline">{t('navbar_contact')}</RouterLink>
+            </li>
           </ul>
         </div>
         {/* Contact Info */}
