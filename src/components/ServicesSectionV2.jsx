@@ -47,7 +47,7 @@ export default function ServicesSectionV2({ services }) {
           <img
             src={services[active].imagePath}
             alt={t(services[active].title)}
-            className="w-full max-h-64 object-cover rounded mb-4 shadow"
+            className="w-full max-h-72 object-cover rounded mb-4 shadow"
             style={{ objectPosition: services[active].imageObjectPosition || 'center' }}
           />
         ) : null}
@@ -58,7 +58,25 @@ export default function ServicesSectionV2({ services }) {
           })()}
           {t(services[active].title)}
         </h3>
-        <p className="text-gray-700 text-base">{t(services[active].description)}</p>
+        {(() => {
+          const desc = t(services[active].description, { returnObjects: true });
+          if (Array.isArray(desc)) {
+            const [intro, ...items] = desc;
+            return (
+              <div className="text-gray-700 text-base">
+                {intro ? <p className="mb-2">{intro}</p> : null}
+                {items.length > 0 ? (
+                  <ul className="list-disc pl-6 space-y-1">
+                    {items.map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </div>
+            );
+          }
+          return <p className="text-gray-700 text-base">{desc}</p>;
+        })()}
       </div>
     </section>
   );

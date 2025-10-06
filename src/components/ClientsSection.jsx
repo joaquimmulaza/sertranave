@@ -46,7 +46,7 @@ const ClientsSection = () => {
 
   return (
     <section className="py-16 bg-white shadow rounded">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         {/* Título da seção */}
         <motion.div
           className="text-center mb-12"
@@ -58,7 +58,7 @@ const ClientsSection = () => {
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-4">
             {t('clients_trust_us')}
           </h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-64 h-1 bg-primary mx-auto rounded-full"></div>
         </motion.div>
 
         {/* Grid de logos dos clientes */}

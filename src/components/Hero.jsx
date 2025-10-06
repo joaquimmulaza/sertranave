@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "./ui/button";
 import sertranaveCenter from '../assets/images/slide-03.png';
-import sertranaveLogo from '../assets/images/slide-02.jpg';
+import sertranaveLogo from '../assets/images/slide-02.jpeg';
 import giphy from '../assets/images/slide-01.png';
+import slide4 from '../assets/images/slide-04.jpg';
 
 const slides = [
   {
@@ -19,6 +20,10 @@ const slides = [
     image: giphy,
     alt: 'Sertranave Animation',
   },
+  {
+    image: slide4,
+    alt: 'Sertranave Animation',
+  },
 ];
 
 export default function Hero() {
@@ -28,7 +33,7 @@ export default function Hero() {
   React.useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, 2000);
     return () => clearInterval(timer);
   }, []);
 

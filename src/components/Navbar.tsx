@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
 import { Menu, X, Phone, Mail, Facebook, Instagram } from 'lucide-react';
@@ -12,6 +12,7 @@ const navLinks = [
   { name: 'navbar_services', href: '/servicos' },
   { name: 'navbar_ports', href: '/portos' },
   { name: 'navbar_contact', href: '/contactos' },
+  { name: 'navbar_quality_policy', href: '/politica-de-qualidade' },
 ];
 
 export default function Navbar() {
@@ -19,6 +20,14 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 0);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm({ ...form, [e.target.id]: e.target.value });
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -28,10 +37,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="w-full shadow-md bg-primary">
+    <nav
+      className={`w-full sticky top-0 z-50 shadow-md transition-colors duration-300 ${isScrolled ? 'bg-primary/80 backdrop-blur-md' : 'bg-primary'}`}
+    >
       
       {/* Main Bar */}
-      <div className="max-w-6xl mx-auto bg-primary text-white flex items-center justify-between px-4 py-2 relative">
+      <div className="max-w-7xl mx-auto text-white flex items-center justify-between px-4 py-6 relative">
         <a href="/" className="flex logo items-center gap-2 text-4xl font-stardos-stencil">
           SERTRANAVE
         </a>

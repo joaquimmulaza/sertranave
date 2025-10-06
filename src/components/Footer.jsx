@@ -25,7 +25,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-white mt-12">
-      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Logo & Mission */}
         <div className="flex flex-col items-start">
           <span className='logo text-2xl font-stardos-stencil'>SERTRANAVE</span>
@@ -81,7 +81,7 @@ export default function Footer() {
         </div>
       </div>
       {/* Bottom Bar */}
-      <div className="bg-primary/90 border-t border-white/10 py-4 text-center flex flex-col md:flex-row items-center justify-between px-4 max-w-6xl mx-auto">
+      <div className="bg-primary/90 border-t border-white/10 py-4 text-center flex flex-col md:flex-row items-center justify-between px-4 max-w-7xl mx-auto">
         <span className="text-xs">© {year} Sertranave. {t('footer_rights_reserved')}.</span>
         <div className="flex gap-4 mt-2 md:mt-0">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><Facebook size={20} /></a>

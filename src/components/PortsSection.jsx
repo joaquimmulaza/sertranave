@@ -25,7 +25,7 @@ export default function PortsSection({ ports }) {
         <img
           src={ports[active].imagePath}
           alt={t(ports[active].name)}
-          className="w-full max-h-64 object-cover rounded mb-4 shadow"
+          className="w-full max-h-72 object-cover rounded mb-4 shadow"
         />
         <h3 className="text-xl font-bold mb-2">{t(ports[active].name)}</h3>
         <p className="text-gray-700 text-base">{t(ports[active].description)}</p>

@@ -17,7 +17,7 @@ export default function HomePage() {
       <Hero />
       {/* Visão, Missão e Valores */}
       <motion.div
-        className="max-w-6xl mx-auto px-4"
+        className="max-w-7xl mx-auto px-4"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -26,7 +26,7 @@ export default function HomePage() {
         <VisionMissionValues />
       </motion.div>
       <motion.div
-        className="max-w-6xl mx-auto px-4"
+        className="max-w-7xl mx-auto px-4"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
@@ -39,7 +39,7 @@ export default function HomePage() {
       </motion.div>
 
       <motion.div
-        className="max-w-6xl mx-auto px-4"
+        className="max-w-7xl mx-auto px-4"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}

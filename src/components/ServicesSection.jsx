@@ -22,7 +22,25 @@ export default function ServicesSection({ services }) {
           </div>
           <div>
             <h3 className="text-lg font-semibold mb-1">{t(service.title)}</h3>
-            <p className="text-gray-600 text-sm">{t(service.description)}</p>
+            {(() => {
+              const desc = t(service.description, { returnObjects: true });
+              if (Array.isArray(desc)) {
+                const [intro, ...items] = desc;
+                return (
+                  <div className="text-gray-600 text-sm">
+                    {intro ? <p className="mb-2">{intro}</p> : null}
+                    {items.length > 0 ? (
+                      <ul className="list-disc pl-5 space-y-1">
+                        {items.map((item, idx) => (
+                          <li key={idx}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                );
+              }
+              return <p className="text-gray-600 text-sm">{desc}</p>;
+            })()}
           </div>
         </div>
       ))}
