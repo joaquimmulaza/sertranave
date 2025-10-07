@@ -1,4 +1,5 @@
 import React from 'react';
+import imgLogistica from '../assets/images/service-logistica.jpg';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Button } from './../components/ui/button';
@@ -56,7 +57,7 @@ const AboutPage = () => {
               <p>{t('about_history_text2')}</p>
             </motion.div>
             <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <img src="/src/assets/images/service-logistica.jpg" alt="Nossa Empresa" className="rounded-lg shadow-lg" />
+              <img src={imgLogistica} alt="Nossa Empresa" className="rounded-lg shadow-lg" />
             </motion.div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { scroller } from 'react-scroll';
 import tuvCertificado from '../assets/images/tuv-certificado.png';
 import anpgCertificado from '../assets/images/anpg-certificado.png';
+import aecipaCertificado from '../assets/images/aecipa-certifcado.png';
 import { Facebook, Instagram, Mail, Phone } from 'lucide-react';
 import CertificateModal from './CertificateModal';
 
@@ -52,7 +53,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Logo & Mission */}
         <div className="flex flex-col items-start">
-          <span className='logo text-2xl font-stardos-stencil mb-3'>SERTRANAVE</span>
+          <span className='logo text-2xl font-bold font-stardos-stencil mb-3'>SERTRANAVE</span>
           <p className="text-sm opacity-80">
             {t('footer_mission')}
           </p>
@@ -63,12 +64,12 @@ export default function Footer() {
           <h3 className="font-bold mb-3 text-lg">{t('footer_quick_links')}</h3>
           <ul className="space-y-2">
             <li>
-              <RouterLink to="/" className="hover:underline hover:text-secondary transition-colors">
+              <RouterLink to="/" className="hover:underline hover:underline transition-colors">
                 {t('navbar_home')}
               </RouterLink>
             </li>
             <li>
-              <RouterLink to="/quem-somos" className="hover:underline hover:text-secondary transition-colors">
+              <RouterLink to="/quem-somos" className="hover:underline hover:underline transition-colors">
                 {t('navbar_about')}
               </RouterLink>
             </li>
@@ -83,13 +84,13 @@ export default function Footer() {
             <li>
               <button
                 onClick={() => handleScrollClick('ports')}
-                className="hover:underline hover:text-secondary transition-colors text-left"
+                className="hover:underline hover:underline transition-colors text-left"
               >
                 {t('navbar_ports')}
               </button>
             </li>
             <li>
-              <RouterLink to="/contactos" className="hover:underline hover:text-secondary transition-colors">
+              <RouterLink to="/contactos" className="hover:underline hover:underline transition-colors">
                 {t('navbar_contact')}
               </RouterLink>
             </li>
@@ -100,10 +101,10 @@ export default function Footer() {
         <div>
           <h3 className="font-bold mb-3 text-lg">{t('footer_contact')}</h3>
           <ul className="space-y-2 text-sm">
-            <li className="flex items-center gap-2 hover:text-secondary transition-colors">
+            <li className="flex items-center gap-2 hover:underline transition-colors">
               <Phone size={16} /> +244 922617263
             </li>
-            <li className="flex items-center gap-2 hover:text-secondary transition-colors">
+            <li className="flex items-center gap-2 hover:underline transition-colors">
               <Mail size={16} /> info@sertranave.co.ao
             </li>
             <li className="opacity-80">{t('footer_address')}</li>
@@ -134,6 +135,16 @@ export default function Footer() {
                 className="w-full h-auto rounded"
               />
             </div>
+            <div 
+              className="bg-white/10 p-3 rounded-lg cursor-pointer hover:bg-white/20 transition-all hover:scale-105 duration-300"
+              onClick={() => openCertificate('aecipa')}
+            >
+              <img 
+                src={aecipaCertificado} 
+                alt="AECIPA Certificate" 
+                className="w-full h-auto rounded"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -149,7 +160,7 @@ export default function Footer() {
             target="_blank" 
             rel="noopener noreferrer" 
             aria-label="Facebook"
-            className="hover:text-secondary transition-colors"
+            className=" transition-colors"
           >
             <Facebook size={20} />
           </a>
@@ -158,7 +169,7 @@ export default function Footer() {
             target="_blank" 
             rel="noopener noreferrer" 
             aria-label="Instagram"
-            className="hover:text-secondary transition-colors"
+            className=" transition-colors"
           >
             <Instagram size={20} />
           </a>

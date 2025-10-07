@@ -4,16 +4,30 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import { motion } from 'framer-motion';
-import qualityPolicyPdf from '../assets/certificados/politica-de-qualidade.pdf';
+import qualityPolicyPdfPt from '../assets/certificados/politica-de-qualidade.pdf';
+import qualityPolicyPdfEn from '../assets/certificados/politica-de-qualidade-english.pdf';
 
 // Use the same worker path as elsewhere in the app
 pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 
 export default function QualityPolicyPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [numPages, setNumPages] = React.useState(null);
   const [pageNumber, setPageNumber] = React.useState(1);
   const [isCtrlPressed, setIsCtrlPressed] = React.useState(false);
+
+  const pdfFile = i18n.language && i18n.language.toLowerCase().startsWith('en')
+    ? qualityPolicyPdfEn
+    : qualityPolicyPdfPt;
+
+  // Memoize options to avoid unnecessary reloads and warnings
+  const pdfOptions = React.useMemo(() => ({ cMapUrl: '/cmaps/', cMapPacked: true }), []);
+
+  // Reset state whenever the file changes (e.g., language switch)
+  React.useEffect(() => {
+    setNumPages(null);
+    setPageNumber(1);
+  }, [pdfFile]);
 
   // Basic download/print/context-menu blocking
   React.useEffect(() => {
@@ -63,12 +77,17 @@ export default function QualityPolicyPage() {
         <div className="flex flex-col items-center space-y-4">
           <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm select-none">
             <Document
-              file={qualityPolicyPdf}
+              key={typeof pdfFile === 'string' ? pdfFile : 'quality-policy'}
+              file={pdfFile}
               onLoadSuccess={onDocumentLoadSuccess}
               renderMode="canvas"
-              options={{ cMapUrl: '/cmaps/', cMapPacked: true }}
+              options={pdfOptions}
               loading={<div className="h-96 w-[calc(100vw-4rem)] max-w-[820px] grid place-items-center bg-gray-50 text-gray-500">{t('certificate_modal_loading')}</div>}
               error={<div className="h-96 w-[calc(100vw-4rem)] max-w-[820px] grid place-items-center bg-red-50 text-red-600">{t('certificate_modal_error')}</div>}
+              onLoadError={() => {
+                setNumPages(null);
+                setPageNumber(1);
+              }}
             >
               <Page
                 pageNumber={pageNumber}

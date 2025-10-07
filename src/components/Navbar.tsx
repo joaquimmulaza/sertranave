@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
-import LanguageSelector from './LanguageSelector.jsx';
+import LanguageSelector from './LanguageSelector.tsx';
 import { Menu, X } from 'lucide-react';
-import { Dialog } from './ui/dialog.jsx';
-import { Input } from './ui/input.jsx';
+import { Dialog } from './ui/dialog.tsx';
+import { Input } from './ui/input.tsx';
 import { Button } from './ui/button';
 
 const navLinks = [
@@ -29,7 +29,13 @@ export default function Navbar() {
     const onScroll = () => setIsScrolled(window.scrollY > 0);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    // Listener para abrir o modal a partir de outras páginas (ex.: ContactPage CTA)
+    const openQuote = () => setDialogOpen(true);
+    window.addEventListener('open-quote', openQuote as unknown as EventListener);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('open-quote', openQuote as unknown as EventListener);
+    };
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm({ ...form, [e.target.id]: e.target.value });
@@ -46,7 +52,7 @@ export default function Navbar() {
       
       {/* Main Bar */}
       <div className="max-w-7xl mx-auto text-white flex items-center justify-between px-4 py-6 relative">
-        <a href="/" className="flex logo items-center gap-2 text-4xl font-stardos-stencil">
+        <a href="/" className="flex logo font-bold items-center gap-2 text-4xl font-stardos-stencil">
           SERTRANAVE
         </a>
         {/* Desktop Nav */}
@@ -124,6 +130,9 @@ export default function Navbar() {
             >
               {t('quote_button')}
             </button>
+            <div className="mt-3">
+              <LanguageSelector />
+            </div>
           </div>
         )}
       </div>

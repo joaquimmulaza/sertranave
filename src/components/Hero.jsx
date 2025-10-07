@@ -33,7 +33,7 @@ export default function Hero() {
   React.useEffect(() => {
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
-    }, 2000);
+    }, 4000);
     return () => clearInterval(timer);
   }, []);
 
@@ -52,11 +52,9 @@ export default function Hero() {
         />
       </AnimatePresence>
       <div className="relative z-10 flex flex-col items-center justify-center w-full h-full bg-black/40 text-white text-center px-4">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg mb-4">{t('hero_title')}</h1>
+        <h1 className="text-4xl md:text-6xl font-bold tracking-wide drop-shadow-lg mb-4 font-stardos-stencil">{t('hero_title')}</h1>
         <p className="text-lg md:text-2xl mb-8 font-medium drop-shadow">{t('hero_subtitle')}</p>
-        <Button className="bg-primary text-white px-8 py-3 text-lg rounded shadow-lg hover:bg-primary/90 transition-colors">
-          {t('learn_more')}
-        </Button>
+       
       </div>
     </section>
   );

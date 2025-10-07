@@ -1,4 +1,6 @@
 // src/data/textContent.js
+import tuvCert from '../assets/images/tuv-certificado.png';
+
 export default {
   about: `A SERTRANAVE – Serviços Transitários e Navegação, Lda, é uma empresa angolana dedicada ao agenciamento marítimo, logística e consultoria portuária. Com uma equipa experiente e soluções inovadoras, atuamos nos principais portos de Angola, oferecendo serviços personalizados e eficientes para clientes nacionais e internacionais.`,
   history: `Fundada em Luanda, a SERTRANAVE consolidou-se como referência no setor marítimo e logístico angolano. Nossa trajetória é marcada pelo compromisso com a excelência, ética e inovação, sempre focados em superar as expectativas dos nossos clientes.`,
@@ -10,7 +12,7 @@ export default {
   certificates: [
     {
       name: 'TÜV Certificado',
-      imagePath: '/src/assets/images/tuv-certificado.png',
+      imagePath: tuvCert,
     },
   ],
 };

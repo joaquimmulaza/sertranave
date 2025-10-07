@@ -1,4 +1,5 @@
 import React from 'react';
+import imgLuanda from '../assets/images/porto-de-luanda.jpg';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../components/ui/button';
@@ -82,7 +83,7 @@ const ContactPage = () => {
               </form>
             </motion.div>
             <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-               <img src="/src/assets/images/porto-de-luanda.jpg" alt="Mapa" className="rounded-lg shadow-lg w-full h-full object-cover" />
+               <img src={imgLuanda} alt="Mapa" className="rounded-lg shadow-lg w-full h-full object-cover" />
             </motion.div>
           </div>
         </div>
@@ -94,8 +95,13 @@ const ContactPage = () => {
           <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <h2 className="text-3xl font-bold text-primary mb-4">{t('contact_cta_title')}</h2>
             <p className="text-lg max-w-2xl mx-auto mb-8">{t('contact_cta_text')}</p>
-            <Button size="lg" asChild>
-              <a href="mailto:geral@sertranave.co.ao">{t('contact_us')}</a>
+            <Button
+              size="lg"
+              onClick={() => {
+                window.dispatchEvent(new Event('open-quote'));
+              }}
+            >
+              {t('contact_us')}
             </Button>
           </motion.div>
         </div>

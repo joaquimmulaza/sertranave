@@ -24,12 +24,14 @@ const CertificateModal = ({ isOpen, onClose, certificateType }) => {
 
   const certificateFiles = {
     tuv: '/certificados/certificado-tuv.pdf',
-    anpg: '/certificados/certificado-anpg.pdf'
+    anpg: '/certificados/certificado-anpg.pdf',
+    aecipa: '/certificados/certificado-AECIPA.pdf'
   };
 
   const certificateNames = {
     tuv: 'TÜV Rheinland Certificate',
-    anpg: 'ANPG Certificate'
+    anpg: 'ANPG Certificate',
+    aecipa: 'AECIPA Certificate'
   };
 
   const onDocumentLoadSuccess = ({ numPages }) => {

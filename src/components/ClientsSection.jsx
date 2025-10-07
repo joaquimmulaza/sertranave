@@ -7,6 +7,8 @@ import dsvLogo from '../assets/clientes/dsv-logo.png';
 import kikoloLogo from '../assets/clientes/kikolo-logo.png';
 import octomarLogo from '../assets/clientes/octomar-logo.png';
 import prometinLogo from '../assets/clientes/prometin-logo.png';
+import oceanAtlantic from '../assets/clientes/ocean-atlantic.png';
+import tecSep from '../assets/clientes/logo-tecsep.png';
 
 const ClientsSection = () => {
   const { t } = useTranslation();
@@ -15,7 +17,9 @@ const ClientsSection = () => {
     { name: 'DSV', logo: dsvLogo },
     { name: 'Kikolo', logo: kikoloLogo },
     { name: 'Octomar', logo: octomarLogo },
-    { name: 'Prometin', logo: prometinLogo }
+    { name: 'Prometin', logo: prometinLogo },
+    { name: 'Ocean Atlantic', logo: oceanAtlantic },
+    { name: 'TecSep', logo: tecSep }
   ];
 
   const containerVariants = {
@@ -63,7 +67,7 @@ const ClientsSection = () => {
 
         {/* Grid de logos dos clientes */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 items-center justify-items-center"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-y-4 gap-x-0.5 items-center justify-items-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -72,7 +76,7 @@ const ClientsSection = () => {
           {clients.map((client, index) => (
             <motion.div
               key={client.name}
-              className="flex items-center justify-center p-3 rounded-lg hover:bg-gray-50 transition-colors duration-300 group"
+              className="flex items-center justify-center p-2 rounded-lg hover:bg-gray-50 transition-colors duration-300 group"
               variants={itemVariants}
               whileHover={{ 
                 scale: 1.05,
@@ -82,7 +86,7 @@ const ClientsSection = () => {
               <motion.img
                 src={client.logo}
                 alt={`${client.name} logo`}
-                className="h-16 md:h-18 lg:h-20 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                className="h-20 md:h-24 lg:h-28 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                 whileHover={{ 
                   filter: "brightness(1.1)",
                   transition: { duration: 0.2 }
