@@ -96,8 +96,8 @@ const ContactPage = () => {
             <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
               <h2 className="text-3xl font-bold text-primary mb-6">{t('contact_form_title')}</h2>
               <form ref={form} onSubmit={sendEmail} className="space-y-4">
-                <Input name="user_name" placeholder={t('form_name')} required />
-                <Input type="email" name="user_email" placeholder={t('form_email')} required />
+                <Input name="name" placeholder={t('form_name')} required />
+                <Input type="email" name="email" placeholder={t('form_email')} required />
                 <Input name="subject" placeholder={t('contact_form_subject')} required />
                 <Textarea name="message" placeholder={t('form_message')} rows={5} required />
                 <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
